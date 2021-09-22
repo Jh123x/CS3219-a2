@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Calculations
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Number factorization</h1>
+    <hr>
+    <form method="POST" class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Value</span>
+        <input type="number" name="value" class="form-control" placeholder="123" aria-label="value"
+            aria-describedby="addon-wrapping">
+        <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+    </form>
+    {% if results %}
+    <h3>Results: {{input}}</h3>
+    <p>
+        {% for item in results %}
+        {{item}},
+        {% endfor %}
+    </p>
+    {% else %}
+    <h3>Key in a value to start</h3>
+    {% endif %}
+</div>
+{% endblock %}
